@@ -1,14 +1,15 @@
 <!-- navbar -->
-<div data-ng-include=" 'templates/main/header.html' " class="app-header navbar"></div>
+<div data-ng-include="templates.header" class="app-header navbar"></div>
 <!-- / navbar -->
 <div class="app-body">
   <!-- aside -->
-  <div data-ng-include=" 'templates/main/aside.html' " class="app-aside flex-col"></div>
+  <div data-ng-include="templates.aside" class="app-aside flex-col"></div>
   <!-- / aside -->
   <div class="flex-col container container-flex">
     <!-- content -->
     <div>
-      <div ui-view="dashboard"></div>
+      <div ng-if="currentView === 'dashboard'" ui-view="dashboard"></div>
+      <div ng-if="currentView === 'news'" ui-view="news"></div>
       <!-- <div ui-view="news"></div> -->
     </div>
     <!-- /content -->

@@ -7,6 +7,6 @@ angular.module('app.services', [])
   }])
   .factory('consumeData', ['$http', function($http) {
     return function consumeData() {
-      return $http.get('/data/data.json');
+      return $http.get('/static/data.json');
     };
   }])

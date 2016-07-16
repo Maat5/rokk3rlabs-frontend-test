@@ -20,8 +20,9 @@ body
   height 50px
 
 .app-aside
-  padding  1em
-  flex  0 0 12em !important
+  // padding  1em
+  // flex  0 0 12em !important
+  width 16.5%
   height auto
   background-color rgb(47, 50, 58)
   color  #FFFF
@@ -86,10 +87,8 @@ body
   background-color white
   canvas
     max-height 400px
-    max-width 400px
+    max-width 100%
     display inline-block
-  .speed
-    max-width 80%
 
 .m-md
   margin 20px !important
@@ -119,7 +118,24 @@ body
 .text-center
   text-align center
 
-.legend
-  li
-    list-style-type: none
-    padding 5px
+.navi-wrap
+  padding 5px 0 5px  0
+  line-height 1.5px
+  .nav
+    width auto
+    text-align left
+    padding 0
+  .nav
+    li
+     padding 15px
+     span
+       margin-left 10px
+
+.active-nav, .nav>li:hover
+  background-color rgb(30, 32, 37) !important
+  cursor pointer
+
+.title-aside
+  position relative
+  left 20px
+  top 10px
