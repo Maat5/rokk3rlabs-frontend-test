@@ -26,19 +26,25 @@ angular.module('app.dashboard', [])
         'rgba(255, 159, 64, 1)'
       ];
 
+      $scope.options = {
+        legend: {
+          display: false
+        }
+      };
+
       $scope.initDashboard = function() {
         consumeData().then(function(res) {
           $scope.consumeData = res.data;
-          $scope.initSZones(res.data)
+          $scope.initSZones(res.data, false);
 
           // setInterval(function(){
-          //   $scope.initSZones(res.data);
-          // }, 1000)
+          //   $scope.initSZones(res.data, true);
+          // }, 10000);
         });
       };
 
 
-      $scope.initSZones = function(data) {
+      $scope.initSZones = function(data, shuffle) {
         var counts = [];
         var speed = [];
         var avg = [];
@@ -51,15 +57,23 @@ angular.module('app.dashboard', [])
           avg.push(data.data.time);
         });
 
+        if(shuffle){
+          counts = _.shuffle(counts);
+          speed = _.shuffle(speed);
+          avg = _.shuffle(avg);
+        }
 
         $scope.countData(counts, labels);
         $scope.speedtData(speed, labels);
-        $scope.avgData(avg, labels)
+        $scope.avgData(avg, labels);
+
+        $scope.loaded = true;
       };
 
       $scope.countData = function(data, labels) {
         $scope.dataCount = {
           type: 'bar',
+          options: $scope.options,
           data: {
             labels: labels,
             datasets: [{
@@ -79,17 +93,20 @@ angular.module('app.dashboard', [])
       $scope.speedtData = function(data, labels) {
         $scope.dataSpeed = {
           type: 'line',
+          options: $scope.options,
           data: {
             labels: labels,
             datasets: [{
               data: data,
               label: 'Zone',
-              backgroundColor: $scope.backColors,
-              borderColor: $scope.borderColor,
+              backgroundColor: _.head($scope.backColors),
+              borderColor: _.head($scope.borderColor),
               borderWidth: 1
             }]
           }
         };
+
+        console.log($scope.dataSpeed)
 
         var ctx = document.getElementById("speedChart").getContext("2d");
         var myChart = new Chart(ctx, $scope.dataSpeed)
@@ -98,6 +115,7 @@ angular.module('app.dashboard', [])
       $scope.avgData = function(data, labels) {
         $scope.dataSpeed = {
           type: 'doughnut',
+          options: $scope.options,
           data: {
             labels: labels,
             datasets: [{

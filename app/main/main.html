@@ -3,12 +3,14 @@
 <!-- / navbar -->
 <div class="app-body">
   <!-- aside -->
-  <div data-ng-include=" 'templates/main/aside.html' " class="app-aside"></div>
+  <div data-ng-include=" 'templates/main/aside.html' " class="app-aside flex-col"></div>
   <!-- / aside -->
-  <!-- content -->
-  <div class="app-content">
-    <div ui-view="dashboard"></div>
-    <div ui-view="news"></div>
+  <div class="flex-col container container-flex">
+    <!-- content -->
+    <div>
+      <div ui-view="dashboard"></div>
+      <!-- <div ui-view="news"></div> -->
+    </div>
+    <!-- /content -->
   </div>
-  <!-- /content -->
 </div>

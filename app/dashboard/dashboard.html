@@ -1,13 +1,33 @@
-<div class="container" data-ng-init="initDashboard()">
-  <div class="flex-inline">
-    <div class="graph-container-large">
-      <canvas id="countChart"></canvas>
+<div data-ng-init="initDashboard()">
+  <div class="row-flex row-flex-wrap">
+    <div class="bg-white m-md wrapper col-lg">
+      <h3 class="title-dash">Speed zones </h3>
+      <div class="graph-container row-flex row-flex-wrap col-lg">
+        <canvas id="speedChart" class="speed"></canvas>
+        <div class="legend speed">
+          <ul>
+            <li ng-repeat="label in dataSpeed.data.labels"> {{label}}</li>
+          </ul>
+        </div>
+      </div>
     </div>
-    <div class="graph-container-mediun">
-      <canvas id="speedChart" width="400" height="400"></canvas>
+  </div>
+  <div class="row-flex row-flex-wrap">
+    <!-- count -->
+    <div class="bg-white m-md wrapper col-md">
+      <h3 class="title-dash">Count by zones</h3>
+      <div class="graph-container">
+        <canvas id="countChart"></canvas>
+      </div>
     </div>
-    <div class="flex-inline graph-container-small">
-      <canvas id="avgChart" width="400" height="400"></canvas>
+    <!-- /count -->
+    <!-- avg -->
+    <div class="bg-white m-md wrapper">
+      <h3 class="title-dash text-center">Speed Average</h3>
+      <div class="graph-container">
+        <canvas id="avgChart"></canvas>
+      </div>
     </div>
+    <!-- /avg -->
   </div>
 </div>
