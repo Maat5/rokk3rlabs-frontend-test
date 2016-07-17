@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('app', ['ui.router', 'app.dashboard', 'app.services', 'app.controller', 'chartjs'])
+angular.module('app', ['ui.router', 'app.dashboard', 'app.services', 'app.controller','chartjs'])
 
 angular
   .module('app')
@@ -12,7 +12,7 @@ angular
         views: {
           '': { templateUrl: './templates/main/main.html', controller: 'appController' },
           'dashboard@home': { templateUrl: './templates/dashboard/dashboard.html', controller: 'DahsboardController' },
-          'news@home': { template: 'aquii', controller: 'DahsboardController' }
+          'news@home': { templateUrl: './templates/news/news.html'}
         }
       });
 

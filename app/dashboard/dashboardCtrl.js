@@ -33,7 +33,7 @@ angular.module('app.dashboard', [])
 
           setInterval(function(){
             $scope.initSZones(res.data, true);
-          }, 10000);
+          }, 60000);
         });
       };
 
