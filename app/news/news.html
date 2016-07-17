@@ -1,0 +1,26 @@
+<div class="row-flex wrap-cols">
+  <div ng-repeat="ran in [0,1,3,4,5,6,7] track by $index" class="bg-white m-b-sm wrapper cols-w news">
+    <div class="titles">
+      <div class="title-dash">
+        <h4>  Lorem ipsum dolor sit amet {{ran +1 }} </h4>
+      </div>
+      <div class="date">
+        <small> 27 jul 2016</small>
+      </div>
+    </div>
+    <div class="content">
+      <p> Praesentium aperiam debitis incidunt omnis</p>
+    </div>
+    <div data-ng-if="(ran + 1) % 2 === 0">
+      <img ng-src="http://loremflickr.com/320/340/?random={{ran+1}}" alt="">
+    </div>
+    <div class="content">
+      <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium aperiam debitis incidunt omnis, consequuntur magni aut natus saepe voluptatibus ex quos porro doloremque quia placeat reiciendis inventore, officiis mollitia illum.</p>
+    </div>
+    <div class="share">
+      <a href="#"> <i class="fa fa-briefcase"></i></a>
+      <a href="#"> <i class="fa fa-thumbs-up"></i> 14{{ran}}</a>
+      <a href="#"> <i class="fa fa-share"></i></a>
+    </div>
+  </div>
+</div>

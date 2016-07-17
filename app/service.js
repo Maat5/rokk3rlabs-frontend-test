@@ -7,6 +7,6 @@ angular.module('app.services', [])
   }])
   .factory('consumeData', ['$http', function($http) {
     return function consumeData() {
-      return $http.get('/static/data.json');
+      return $http.get('https://dl.dropboxusercontent.com/u/60115472/data.json');
     };
   }])
