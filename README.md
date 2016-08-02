@@ -23,9 +23,15 @@ first clone the repository
 ```sh
 $ git clone https://github.com/Maat5/rokk3rlabs-frontend-test.git
 ```
+
 enter to cloned folder
 ``` sh
  cd rokk3rlabs-frontend-test
+```
+
+if wanna see last version, change to develop branch:
+``` sh
+git checkout develop
 ```
 
 Next Install npm modules
